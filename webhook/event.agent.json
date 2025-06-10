@@ -1,0 +1,127 @@
+{
+    "account": {
+        "id": 1,
+        "name": "middelhost"
+    },
+    "additional_attributes": {},
+    "content_attributes": {},
+    "content_type": "text",
+    "content": "=you",
+    "conversation": {
+        "additional_attributes": {
+            "browser": {
+                "device_name": "Unknown",
+                "browser_name": "Chrome",
+                "platform_name": "Generic Linux",
+                "browser_version": "136.0.0.0",
+                "platform_version": "0"
+            },
+            "referer": "http://0.0.0.0:8000/",
+            "initiated_at": {
+                "timestamp": "Wed May 21 2025 16:59:37 GMT+0500 (Pakistan Standard Time)"
+            },
+            "browser_language": "en"
+        },
+        "can_reply": true,
+        "channel": "Channel::WebWidget",
+        "contact_inbox": {
+            "id": 18,
+            "contact_id": 18,
+            "inbox_id": 1,
+            "source_id": "6eea56f9-9216-4926-b0ca-a2f8c6cbd3bf",
+            "created_at": "2025-05-21T11:59:26.917Z",
+            "updated_at": "2025-05-21T11:59:26.917Z",
+            "hmac_verified": false,
+            "pubsub_token": "zKTxawfkyMsmtE4tsGndv8So"
+        },
+        "id": 15,
+        "inbox_id": 1,
+        "messages": [
+            {
+                "id": 2299,
+                "content": "=you",
+                "account_id": 1,
+                "inbox_id": 1,
+                "conversation_id": 15,
+                "message_type": 1,
+                "created_at": 1749544333,
+                "updated_at": "2025-06-10T08:32:14.124Z",
+                "private": false,
+                "status": "read",
+                "source_id": null,
+                "content_type": "text",
+                "content_attributes": {},
+                "sender_type": "User",
+                "sender_id": 1,
+                "external_source_ids": {},
+                "additional_attributes": {},
+                "processed_message_content": "=you",
+                "sentiment": {},
+                "conversation": {
+                    "assignee_id": null,
+                    "unread_count": 0,
+                    "last_activity_at": 1749544333,
+                    "contact_inbox": {
+                        "source_id": "6eea56f9-9216-4926-b0ca-a2f8c6cbd3bf"
+                    }
+                },
+                "sender": {
+                    "id": 1,
+                    "name": "admi",
+                    "available_name": "admi",
+                    "avatar_url": "http://0.0.0.0:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6aac4ff39be9289136810426818a2690447a63b0/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--5f3375fec9a9cd47682f6a1c0ccf7a892184cef2/219e3da5bcd99690a4d995a9f3d0455f.jpeg",
+                    "type": "user",
+                    "availability_status": null,
+                    "thumbnail": "http://0.0.0.0:3000/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6aac4ff39be9289136810426818a2690447a63b0/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--5f3375fec9a9cd47682f6a1c0ccf7a892184cef2/219e3da5bcd99690a4d995a9f3d0455f.jpeg"
+                }
+            }
+        ],
+        "labels": [],
+        "meta": {
+            "sender": {
+                "additional_attributes": {},
+                "custom_attributes": {},
+                "email": null,
+                "id": 18,
+                "identifier": null,
+                "name": "autumn-fire-281",
+                "phone_number": null,
+                "thumbnail": "",
+                "blocked": false,
+                "type": "contact"
+            },
+            "assignee": null,
+            "team": null,
+            "hmac_verified": false
+        },
+        "status": "pending",
+        "custom_attributes": {},
+        "snoozed_until": null,
+        "unread_count": 0,
+        "first_reply_created_at": "2025-05-21T12:31:56.601Z",
+        "priority": null,
+        "waiting_since": 0,
+        "agent_last_seen_at": 1749544333,
+        "contact_last_seen_at": 1749544333,
+        "last_activity_at": 1749544333,
+        "timestamp": 1749544333,
+        "created_at": 1747828777,
+        "updated_at": 1749544334.1367726
+    },
+    "created_at": "2025-06-10T08:32:13.555Z",
+    "id": 2299,
+    "inbox": {
+        "id": 1,
+        "name": "Middlehost"
+    },
+    "message_type": "outgoing",
+    "private": false,
+    "sender": {
+        "id": 1,
+        "name": "admi",
+        "email": "huzaifairfan2001@gmail.com",
+        "type": "user"
+    },
+    "source_id": null,
+    "event": "message_updated"
+}
