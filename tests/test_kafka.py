@@ -1,17 +1,18 @@
 
 import json
-import datetime
-
-import logging
 
 from webhook import produce_pending_user_message
 
+import datetime
 UTC_TIME_NOW=str(datetime.datetime.now(tz=datetime.UTC))
 
+import os
+KAFKA_URL = os.getenv("KAFKA_URL", "localhost:9092")
+print(f"pytest KAFKA_URL at '{KAFKA_URL}'")
     
 def test_produce_pending_user_message():
-    account_id=0
-    conversation_id=0
+    account_id=1
+    conversation_id=1
     user_name="pytest"
     user_email=None
     user_phonenumber=None
@@ -26,7 +27,7 @@ def test_produce_pending_user_message():
 from confluent_kafka import Consumer, KafkaException
 
 conf = {
-    'bootstrap.servers': 'localhost:9092',
+    'bootstrap.servers': KAFKA_URL,
     'group.id': 'pending_user_messages_group',
     'auto.offset.reset': 'earliest'
 }

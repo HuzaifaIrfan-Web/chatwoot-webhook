@@ -2,6 +2,11 @@
 import logging
 import sys
 
+# Load the .env file
+from dotenv import load_dotenv
+load_dotenv(override=True)
+
+
 def pytest_configure(config):
     # Configure uvicorn.error logger to stream to stdout
     logger = logging.getLogger("uvicorn.error")

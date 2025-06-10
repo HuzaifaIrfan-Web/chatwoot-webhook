@@ -6,8 +6,15 @@ from starlette.responses import HTMLResponse
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
-CHATWOOT_BASE_URL="https://chat.huzaifairfan.com"
-CHATWOOT_WEBSITE_TOKEN="JYvaTkmnKxmwWpJagk3czM1e"
+
+import os
+CHATWOOT_URL = os.getenv("CHATWOOT_URL", "http://0.0.0.0:3000")
+print(f"CHATWOOT_URL at '{CHATWOOT_URL}'")
+
+CHATWOOT_WEBSITE_TOKEN = os.getenv(
+    "CHATWOOT_WEBSITE_TOKEN", "JYvaTkmnKxmwWpJagk3czM1e")
+
+
 
 from webhook import handle_event
 
@@ -24,7 +31,7 @@ async def webhook_api(event: dict):
 INDEX_HTML='''<script>
   (function(d,t) {
     var BASE_URL="'''
-INDEX_HTML+=CHATWOOT_BASE_URL
+INDEX_HTML+=CHATWOOT_URL
 INDEX_HTML+='''";
     var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=BASE_URL+"/packs/js/sdk.js";

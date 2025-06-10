@@ -5,7 +5,12 @@ import json
 import logging
 logger = logging.getLogger("uvicorn.error")
 
-producer = Producer({'bootstrap.servers': 'localhost:9092'})
+import os
+KAFKA_URL = os.getenv("KAFKA_URL", "localhost:9092")
+print(f"KAFKA_URL at '{KAFKA_URL}'")
+
+
+producer = Producer({'bootstrap.servers': KAFKA_URL})
 
 
 def produce_pending_user_message(account_id, conversation_id, user_name, user_email, user_phonenumber, content):
