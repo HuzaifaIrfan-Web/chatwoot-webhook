@@ -21,6 +21,20 @@ import json
    
 from chatwoot import create_new_message
 
+
+import logging
+import time
+
+# Configure logging
+logging.basicConfig(
+    filename='log/chatwoot_create_new_message_consumer.log',
+    filemode='a',
+    level=logging.INFO,
+    format='[%(asctime)s] [%(process)d] [%(levelname)s]  %(message)s'
+)
+logging.Formatter.converter = time.gmtime
+logging.warning("chatwoot_create_new_message_consumer Started")
+
 def main():
     producer = Producer({'bootstrap.servers': KAFKA_URL})
     payload={
@@ -64,8 +78,8 @@ def main():
             content=payload["content"]
             
             ret=create_new_message(account_id, conversation_id, content)
-            
-            
+            logging.info(json.dumps(ret))
+
     except KeyboardInterrupt:
         print("Interrupted by user")
     finally:

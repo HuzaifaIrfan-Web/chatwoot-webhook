@@ -13,6 +13,9 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
+    volumes: 
+      - ./log:/app/log
+
     networks:
       - kafka
 
@@ -23,8 +26,8 @@ services:
     command: uv run gunicorn -c gunicorn_config.py main:app
     ports:
       - 8000:8000
-    volumes: 
-      - ./log:/var/log/gunicorn/
+    # volumes: 
+    #   - ./log:/var/log/gunicorn/
 
   chatwoot_create_new_message_consumer:
     <<: *base
@@ -37,8 +40,6 @@ services:
     container_name: chatwoot_open_conversation_status_consumer
     restart: unless-stopped
     command: uv run chatwoot_open_conversation_status_consumer.py
-
-
 
 
 networks:

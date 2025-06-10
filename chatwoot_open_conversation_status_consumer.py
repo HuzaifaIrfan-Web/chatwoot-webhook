@@ -18,6 +18,19 @@ import json
    
 from chatwoot import open_conversation_status
 
+import logging
+import time
+
+# Configure logging
+logging.basicConfig(
+    filename='log/chatwoot_open_conversation_status_consumer.log',
+    filemode='a',
+    level=logging.INFO,
+    format='[%(asctime)s] [%(process)d] [%(levelname)s]  %(message)s'
+)
+logging.Formatter.converter = time.gmtime
+logging.warning("chatwoot_open_conversation_status_consumer Started")
+
 def main():
     producer = Producer({'bootstrap.servers': KAFKA_URL})
     payload={
@@ -58,6 +71,7 @@ def main():
             conversation_id=payload["conversation_id"]
             
             ret=open_conversation_status(account_id, conversation_id)
+            logging.info(json.dumps(ret))
             
     except KeyboardInterrupt:
         print("Interrupted by user")
