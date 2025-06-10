@@ -2,7 +2,7 @@
 
 import requests
 from requests.exceptions import RequestException
-# User Token in User Profile 
+# User Token in User Profile
 # Super Admin Console Agent Bot Access Token
 
 import os
@@ -11,8 +11,9 @@ import os
 CHATWOOT_URL = os.getenv("CHATWOOT_URL", "http://0.0.0.0:3000")
 print(f"CHATWOOT_URL at '{CHATWOOT_URL}'")
 
-CHATWOOT_API_TOKEN = os.getenv("CHATWOOT_API_TOKEN", "ysSSYhPFfc3PyMDkDLeTBcYD")
-# print(f"CHATWOOT_API_TOKEN at '{CHATWOOT_API_TOKE
+CHATWOOT_API_TOKEN = os.getenv(
+    "CHATWOOT_API_TOKEN", "ysSSYhPFfc3PyMDkDLeTBcYD")
+# print(f"CHATWOOT_API_TOKEN at '{CHATWOOT_API_TOKEN")
 
 
 # https://app.chatwoot.com/api/v1/accounts/{account_id}/conversations/{conversation_id}/toggle_status
@@ -43,10 +44,10 @@ def create_new_message(account_id, conversation_id, message):
         "api_access_token": CHATWOOT_API_TOKEN
     }
     payload = {
-  "content": message,
-  "message_type": "outgoing",
-  "private": False
-}
+        "content": message,
+        "message_type": "outgoing",
+        "private": False
+    }
 
     try:
         response = requests.post(url, json=payload, headers=headers)
@@ -57,5 +58,3 @@ def create_new_message(account_id, conversation_id, message):
         if hasattr(e, 'response') and e.response:
             print(f"Response content: {e.response.text}")
         return None
-    
-    
