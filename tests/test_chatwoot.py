@@ -17,7 +17,7 @@ def test_open_conversation_status():
 
 def test_create_new_message():
     """{'id': 2349, 'content': 'hi', 'inbox_id': 1, 'conversation_id': 15, 'message_type': 1, 'content_type': 'text', 'status': 'sent', 'content_attributes': {}, 'created_at': 1749560592, 'private': False, 'source_id': None, 'sender': {'id': 1, 'name': 'mbot', 'avatar_url': '', 'type': 'agent_bot'}}"""
-    content = UTC_TIME_NOW
+    content = f"pytest {UTC_TIME_NOW}"
     res = create_new_message(account_id, conversation_id, content)
     print(res)
     assert res["content"] == content
