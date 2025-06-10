@@ -13,9 +13,8 @@ uv run fastapi run --host 0.0.0.0 --port 8000
 ```
 
 ```sh
-uv run gunicorn -k uvicorn.workers.UvicornWorker -w 4 -b 0.0.0.0:8000 main:app
+uv run gunicorn -c gunicorn_config.py main:app
 ```
-
 
 ## Run Docker
 ```sh

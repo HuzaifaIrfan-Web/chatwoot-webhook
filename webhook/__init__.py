@@ -2,6 +2,9 @@
 from confluent_kafka import Producer
 import json
 
+import logging
+logger = logging.getLogger("uvicorn.error")
+
 producer = Producer({'bootstrap.servers': 'localhost:9092' })
 
 
@@ -54,9 +57,9 @@ def handle_event(event: dict):
                 key=str(payload["conversation_id"]),
                 value=json.dumps(payload).encode('utf-8'),
                 callback=lambda err, msg, val=payload: (
-                     print(f"❌ Failed to deliver: {err}") if err else print(f"✅ {msg.topic()} Delivered: {val}")
+                     logger.error(f"❌ Failed to deliver: {err}") if err else logger.info(f"✅ {msg.topic()} Delivered: {val}")
                 )
             )
-
+            
             producer.flush()
                             
