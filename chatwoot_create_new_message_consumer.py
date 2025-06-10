@@ -2,9 +2,12 @@
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
+import datetime
+UTC_TIME_NOW = str(datetime.datetime.now(tz=datetime.UTC))
+
 import os
 KAFKA_URL = os.getenv("KAFKA_URL", "localhost:9092")
-print(f"pytest KAFKA_URL at '{KAFKA_URL}'")
+print(f"KAFKA_URL at '{KAFKA_URL}'")
 
 from confluent_kafka import Producer, Consumer, KafkaException
 
@@ -23,7 +26,7 @@ def main():
     payload={
         "account_id":1,
         "conversation_id":1,
-        "content":"create_new_message test"
+        "content":f"create_new_message test {UTC_TIME_NOW}"
     }
     # Serialize to JSON and send
     producer.produce(

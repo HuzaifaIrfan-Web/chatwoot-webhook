@@ -64,6 +64,7 @@ dependencies = [
     { name = "dotenv" },
     { name = "fastapi", extra = ["standard"] },
     { name = "gunicorn" },
+    { name = "kafka-python" },
     { name = "pytest" },
     { name = "requests" },
     { name = "uvicorn" },
@@ -75,6 +76,7 @@ requires-dist = [
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.115.12" },
     { name = "gunicorn", specifier = ">=23.0.0" },
+    { name = "kafka-python", specifier = ">=2.2.11" },
     { name = "pytest", specifier = ">=8.4.0" },
     { name = "requests", specifier = ">=2.32.4" },
     { name = "uvicorn", specifier = ">=0.34.3" },
@@ -282,6 +284,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz", hash = "sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d", size = 245115 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl", hash = "sha256:85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67", size = 134899 },
+]
+
+[[package]]
+name = "kafka-python"
+version = "2.2.11"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/01/cf/f55532155c7e2c54fdbdceb1412425f894fd0a6897575fa3454e541ce186/kafka_python-2.2.11.tar.gz", hash = "sha256:8ff8bcc158f48b47ba516536a5b1287db75a8ceff13d639da917ec52e171acde", size = 347568 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/94/e1/89df26df8a93d24c4ad01db6cffb65894ef3e39c1cedf4a281178e7cb669/kafka_python-2.2.11-py2.py3-none-any.whl", hash = "sha256:c285ce322108382ea9fd62273aab175d9a6959866145cf7cf9d4ca447b632372", size = 309650 },
 ]
 
 [[package]]

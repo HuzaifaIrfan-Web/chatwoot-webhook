@@ -1,0 +1,46 @@
+services:
+
+  base: &base
+    container_name: chatwoot_webhook-base
+    build:
+      context: .
+      dockerfile: dockerfile
+      tags:
+        - "ghcr.io/huzaifairfan/chatwoot_webhook:0.1"
+        
+    image: "ghcr.io/huzaifairfan/chatwoot_webhook:0.1"
+    env_file: .env ## Change this file for customized env variables
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    networks:
+      - kafka
+
+  chatwoot_webhook:
+    <<: *base
+    container_name: chatwoot_webhook
+    restart: unless-stopped
+    command: uv run gunicorn -c gunicorn_config.py main:app
+    ports:
+      - 8000:8000
+    volumes: 
+      - ./log:/var/log/gunicorn/
+
+  chatwoot_create_new_message_consumer:
+    <<: *base
+    container_name: chatwoot_create_new_message_consumer
+    restart: unless-stopped
+    command: uv run chatwoot_create_new_message_consumer.py
+
+  chatwoot_open_conversation_status_consumer:
+    <<: *base
+    container_name: chatwoot_open_conversation_status_consumer
+    restart: unless-stopped
+    command: uv run chatwoot_open_conversation_status_consumer.py
+
+
+
+
+networks:
+  kafka: 
+    external: true
