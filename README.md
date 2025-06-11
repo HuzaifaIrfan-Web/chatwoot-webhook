@@ -1,5 +1,11 @@
 # chatwoot-webhook
 
+## Create .env
+```sh
+cp .env.example .env
+nano .env
+```
+
 ## Run Dev
 ```sh
 uv run fastapi dev --host 0.0.0.0 --port 8000
