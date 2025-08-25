@@ -28,6 +28,23 @@ services:
       - 8000:8000
     # volumes: 
     #   - ./log:/var/log/gunicorn/
+    networks:
+      - web
+      - kafka
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.chat.rule=Host(`chat.home`)"
+
+      - "traefik.http.routers.chat.entrypoints=web"
+      # - "traefik.http.routers.chat.tls=true"
+      # - "traefik.http.routers.chat.tls.certresolver=le"
+
+      # - "traefik.http.services.chat.loadbalancer.server.port=8000"
+      # - "traefik.http.services.chat.loadbalancer.server.scheme=http"
+
+      - "traefik.http.services.chat.loadbalancer.server.url=http://chatwoot_webhook:8000"
+
 
   chatwoot_create_new_message_consumer:
     <<: *base
@@ -44,4 +61,7 @@ services:
 
 networks:
   kafka: 
+    external: true
+
+  web:
     external: true

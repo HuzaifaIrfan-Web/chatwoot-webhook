@@ -15,6 +15,7 @@ CHATWOOT_WEBSITE_TOKEN = os.getenv(
     "CHATWOOT_WEBSITE_TOKEN", "JYvaTkmnKxmwWpJagk3czM1e")
 
 
+from logger import chatwoot_webhook_producer_logger
 
 from webhook import handle_event
 
@@ -24,6 +25,7 @@ app = FastAPI()
 @app.post("/api")
 async def webhook_api(event: dict):
     # print(f"Received event: {event}")
+    chatwoot_webhook_producer_logger.info(f"Received event: {event}")
     handle_event(event)
     return event
 
