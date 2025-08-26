@@ -5,15 +5,10 @@ from requests.exceptions import RequestException
 # User Token in User Profile
 # Super Admin Console Agent Bot Access Token
 
-import os
+from settings import settings
+CHATWOOT_URL = settings.CHATWOOT_URL
+CHATWOOT_API_TOKEN = settings.CHATWOOT_API_TOKEN
 
-# Access environment variables
-CHATWOOT_URL = os.getenv("CHATWOOT_URL", "http://0.0.0.0:3000")
-print(f"CHATWOOT_URL at '{CHATWOOT_URL}'")
-
-CHATWOOT_API_TOKEN = os.getenv(
-    "CHATWOOT_API_TOKEN", "ysSSYhPFfc3PyMDkDLeTBcYD")
-# print(f"CHATWOOT_API_TOKEN at '{CHATWOOT_API_TOKEN")
 
 
 # https://app.chatwoot.com/api/v1/accounts/{account_id}/conversations/{conversation_id}/toggle_status

@@ -5,10 +5,9 @@ import json
 import logging
 logger = logging.getLogger("uvicorn.error")
 
-import os
-KAFKA_URL = os.getenv("KAFKA_URL", "localhost:9092")
-print(f"KAFKA_URL at '{KAFKA_URL}'")
 
+from settings import settings
+KAFKA_URL = settings.KAFKA_URL
 
 producer = Producer({'bootstrap.servers': KAFKA_URL})
 

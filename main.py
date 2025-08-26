@@ -2,17 +2,11 @@
 from fastapi import FastAPI
 from starlette.responses import HTMLResponse
 
-# Load the .env file
-from dotenv import load_dotenv
-load_dotenv(override=True)
 
 
-import os
-CHATWOOT_URL = os.getenv("CHATWOOT_URL", "http://0.0.0.0:3000")
-print(f"CHATWOOT_URL at '{CHATWOOT_URL}'")
-
-CHATWOOT_WEBSITE_TOKEN = os.getenv(
-    "CHATWOOT_WEBSITE_TOKEN", "JYvaTkmnKxmwWpJagk3czM1e")
+from settings import settings
+CHATWOOT_URL = settings.CHATWOOT_URL
+CHATWOOT_WEBSITE_TOKEN = settings.CHATWOOT_WEBSITE_TOKEN
 
 
 from logger import chatwoot_webhook_producer_logger

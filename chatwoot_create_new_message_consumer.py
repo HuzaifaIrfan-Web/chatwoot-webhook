@@ -1,13 +1,11 @@
-# Load the .env file
-from dotenv import load_dotenv
-load_dotenv(override=True)
+
 
 import datetime
 UTC_TIME_NOW = str(datetime.datetime.now(tz=datetime.UTC))
 
-import os
-KAFKA_URL = os.getenv("KAFKA_URL", "localhost:9092")
-print(f"KAFKA_URL at '{KAFKA_URL}'")
+
+from settings import settings
+KAFKA_URL = settings.KAFKA_URL
 
 from confluent_kafka import Producer, Consumer, KafkaException
 
