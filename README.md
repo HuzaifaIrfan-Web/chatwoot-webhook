@@ -1,6 +1,8 @@
 # chatwoot-webhook
 **`Chatwoot Webhook Kafka Bridge`**
 
+https://github.com/HuzaifaIrfan-AI/chatwoot-bot
+
 <!-- •[Link](#)
 
 <hr>
@@ -13,13 +15,14 @@
 
 -->
 
+# 🚀 Usage
 
 ## Goto Chatwoot SuperAdmin Console
 - http://0.0.0.0:3000/super_admin/
 - Create Agent Bot
 - Set Outgoing URL as
 ```txt
-http://host.docker.internal:8000/api
+http://your_host_ip:8000/api
 ```
 - Copy Access Token as API Token
 - Goto Inbox and set Bot Config
@@ -29,20 +32,23 @@ http://host.docker.internal:8000/api
 ```sh
 cp .env.example .env
 ```
-- Use chatwoot URL or Use Correct one. 
-```txt
-http://host.docker.internal:3000
+
+## Configuration
+- Edit .env with your configuration
+
+
+## Run Docker
+```sh
+docker compose up --build
 ```
+
+# 🛠️ Development
 
 ## Test
 ```sh
 uv run pytest
 ```
 
-## Run Docker
-```sh
-docker compose up --build
-```
 
 ## Run Dev
 ```sh
