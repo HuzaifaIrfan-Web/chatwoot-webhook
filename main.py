@@ -10,6 +10,7 @@ CHATWOOT_WEBSITE_TOKEN = settings.CHATWOOT_WEBSITE_TOKEN
 
 
 from logger import chatwoot_webhook_producer_logger
+chatwoot_webhook_producer_logger.warning("chatwoot_webhook_producer_logger Started")
 
 from webhook import handle_event
 
@@ -19,8 +20,10 @@ app = FastAPI()
 @app.post("/api")
 async def webhook_api(event: dict):
     # print(f"Received event: {event}")
-    chatwoot_webhook_producer_logger.info(f"Received event: {event}")
-    handle_event(event)
+    
+    if handle_event(event):
+      chatwoot_webhook_producer_logger.info(f"Produced event: {event}")
+
     return event
 
 
