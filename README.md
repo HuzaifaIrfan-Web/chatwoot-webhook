@@ -77,3 +77,5 @@ uv run gunicorn -c gunicorn_config.py main:app
 # 📜 License
 
 Licensed under the GPL3 License, Copyright 2025 Huzaifa Irfan. [LICENSE](LICENSE)
+
+Last Updated on 2025-06-15
